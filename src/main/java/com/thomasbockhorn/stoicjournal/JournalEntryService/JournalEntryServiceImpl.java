@@ -17,7 +17,7 @@ import com.thomasbockhorn.stoicjournal.repository.JournalRepository;
  *
  */
 @Service
-public class JournalEntryServiceImpl implements JournalEntryService {
+public class JournalEntryServiceImpl implements EntryService {
 
 	@Autowired
 	private JournalRepository journalRepository;

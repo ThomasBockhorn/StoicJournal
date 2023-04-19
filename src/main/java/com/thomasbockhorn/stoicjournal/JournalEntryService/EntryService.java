@@ -11,7 +11,7 @@ import com.thomasbockhorn.stoicjournal.entity.JournalEntry;
  * @author thomasbockhorn
  *
  */
-public interface JournalEntryService {
+public interface EntryService {
 	
 	JournalEntry createEntry(JournalEntry journalEntry);
 	
