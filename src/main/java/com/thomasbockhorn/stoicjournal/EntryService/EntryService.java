@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.thomasbockhorn.stoicjournal.JournalEntryService;
+package com.thomasbockhorn.stoicjournal.EntryService;
 
 import java.util.List;
 
