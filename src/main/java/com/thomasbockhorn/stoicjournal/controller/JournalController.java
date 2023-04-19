@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thomasbockhorn.stoicjournal.JournalEntryService.JournalEntryService;
-import com.thomasbockhorn.stoicjournal.entries.JournalEntry;
+import com.thomasbockhorn.stoicjournal.entity.JournalEntry;
 
 /**
  * @author thomasbockhorn

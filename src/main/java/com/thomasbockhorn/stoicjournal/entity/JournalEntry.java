@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.thomasbockhorn.stoicjournal.entries;
+package com.thomasbockhorn.stoicjournal.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

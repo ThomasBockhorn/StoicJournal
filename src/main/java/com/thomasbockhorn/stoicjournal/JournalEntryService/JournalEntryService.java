@@ -5,7 +5,7 @@ package com.thomasbockhorn.stoicjournal.JournalEntryService;
 
 import java.util.List;
 
-import com.thomasbockhorn.stoicjournal.entries.JournalEntry;
+import com.thomasbockhorn.stoicjournal.entity.JournalEntry;
 
 /**
  * @author thomasbockhorn

@@ -9,7 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.thomasbockhorn.stoicjournal.entries.JournalEntry;
+import com.thomasbockhorn.stoicjournal.entity.JournalEntry;
 import com.thomasbockhorn.stoicjournal.repository.JournalRepository;
 
 /**
