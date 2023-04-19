@@ -15,7 +15,7 @@ public interface EntryService {
 	
 	JournalEntry createEntry(JournalEntry journalEntry);
 	
-	JournalEntry getJournalEntryById(Long journalEntry);
+	JournalEntry getEntryById(Long journalEntry);
 	
 	List<JournalEntry> getAllEntries();
 	

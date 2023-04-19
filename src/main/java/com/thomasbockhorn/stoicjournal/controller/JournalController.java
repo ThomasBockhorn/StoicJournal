@@ -39,7 +39,7 @@ public class JournalController {
 	
 	@GetMapping("{id}")
 	public ResponseEntity<JournalEntry> getUserById(@PathVariable("id") Long entryId){
-		JournalEntry journalEntry = journalEntryService.getJournalEntryById(entryId);
+		JournalEntry journalEntry = journalEntryService.getEntryById(entryId);
 		return new ResponseEntity<>(journalEntry, HttpStatus.OK);
 	}
 	

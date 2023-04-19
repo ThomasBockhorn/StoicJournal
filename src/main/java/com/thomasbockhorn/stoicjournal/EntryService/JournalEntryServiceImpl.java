@@ -28,7 +28,7 @@ public class JournalEntryServiceImpl implements EntryService {
 	}
 
 	@Override
-	public JournalEntry getJournalEntryById(Long entryId) {
+	public JournalEntry getEntryById(Long entryId) {
 		Optional<JournalEntry> optionalEntry = journalRepository.findById(entryId);
 		return optionalEntry.get();
 	}
