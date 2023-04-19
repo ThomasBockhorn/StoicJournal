@@ -25,7 +25,7 @@ import com.thomasbockhorn.stoicjournal.entity.User;
  *
  */
 @RestController
-@RequestMapping("api/v1/journal/user")
+@RequestMapping("api/v1/user")
 public class UserController {
 
 	@Autowired
