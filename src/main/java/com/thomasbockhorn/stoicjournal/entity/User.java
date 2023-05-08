@@ -3,22 +3,31 @@
  */
 package com.thomasbockhorn.stoicjournal.entity;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 /**
  * @author thomasbockhorn
  *
  */
 @Entity
-public class User {
+public class User implements Serializable{
 	
+
+	private static final long serialVersionUID = -5662508195140209025L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long user_id;
 	
 	@Column(nullable = false)
 	private String firstName;
@@ -29,18 +38,22 @@ public class User {
 	@Column(nullable = false)
 	private Long password;
 	
+	@OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
+	private List<JournalEntry> journalEntry = new ArrayList<>();
+	
 	public User() {
 	}
 
-	public User(Long id, String firstName, String lastName, Long password) {
-		this.id = id;
+	public User(Long user_id, String firstName, String lastName, Long password, List<JournalEntry> journalEntry) {
+		this.user_id = user_id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
+		this.journalEntry = journalEntry;
 	}
 
 	public Long getId() {
-		return id;
+		return user_id;
 	}
 
 	public String getFirstName() {
@@ -55,8 +68,8 @@ public class User {
 		return password;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long user_id) {
+		this.user_id = user_id;
 	}
 
 	public void setFirstName(String firstName) {
@@ -70,6 +83,16 @@ public class User {
 	public void setPassword(Long password) {
 		this.password = password;
 	}
+
+	public List<JournalEntry> getJournalEntry() {
+		return journalEntry;
+	}
+
+	public void setJournalEntry(List<JournalEntry> journalEntry) {
+		this.journalEntry = journalEntry;
+	}
+	
+	
 	
 	
 	
