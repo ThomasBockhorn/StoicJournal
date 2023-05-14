@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User updateEntry(User user) {
-		User existingUser = userRepository.findById(user.getId()).get();
+		User existingUser = userRepository.findById(user.getUser_id()).get();
 		existingUser.setFirstName(user.getFirstName());
 		existingUser.setLastName(user.getLastName());
 		existingUser.setPassword(user.getPassword());

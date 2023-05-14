@@ -40,7 +40,7 @@ public class JournalEntryServiceImpl implements EntryService {
 
 	@Override
 	public JournalEntry updateEntry(JournalEntry journalEntry) {
-		JournalEntry existingEntry = journalRepository.findById(journalEntry.getId()).get();
+		JournalEntry existingEntry = journalRepository.findById(journalEntry.getEntry_id()).get();
 		existingEntry.setTitle(journalEntry.getTitle());
 		existingEntry.setContent(journalEntry.getContent());
 		JournalEntry updatedEntry = journalRepository.save(existingEntry);

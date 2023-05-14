@@ -51,7 +51,7 @@ public class JournalController {
 	
 	@PutMapping("{id}")
 	public ResponseEntity<JournalEntry> updateEntry(@PathVariable("id") Long entryId, @RequestBody JournalEntry journalEntry){
-		journalEntry.setId(entryId);
+		journalEntry.setEntry_id(entryId);
 		JournalEntry updateEntry = journalEntryService.updateEntry(journalEntry);
 		return new ResponseEntity<>(updateEntry, HttpStatus.OK);
 	}

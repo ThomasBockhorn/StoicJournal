@@ -4,8 +4,8 @@
 package com.thomasbockhorn.stoicjournal.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -38,21 +38,22 @@ public class User implements Serializable{
 	@Column(nullable = false)
 	private Long password;
 	
-	@OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
-	private List<JournalEntry> journalEntry = new ArrayList<>();
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	@Column
+	private List<JournalEntry> journalEntries = new ArrayList<>();
 	
 	public User() {
 	}
 
-	public User(Long user_id, String firstName, String lastName, Long password, List<JournalEntry> journalEntry) {
+	public User(Long user_id, String firstName, String lastName, Long password, List<JournalEntry> journalEntries) {
 		this.user_id = user_id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.journalEntry = journalEntry;
+		this.journalEntries = journalEntries;
 	}
 
-	public Long getId() {
+	public Long getUser_id() {
 		return user_id;
 	}
 
@@ -68,7 +69,11 @@ public class User implements Serializable{
 		return password;
 	}
 
-	public void setId(Long user_id) {
+	public List<JournalEntry> getJournalEntries() {
+		return journalEntries;
+	}
+
+	public void setUser_id(Long user_id) {
 		this.user_id = user_id;
 	}
 
@@ -84,17 +89,18 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public List<JournalEntry> getJournalEntry() {
-		return journalEntry;
+	public void setJournalEntries(List<JournalEntry> journalEntries) {
+		this.journalEntries = journalEntries;
 	}
 
-	public void setJournalEntry(List<JournalEntry> journalEntry) {
-		this.journalEntry = journalEntry;
+	public void addJournalEntry(JournalEntry journalEntry) {
+		journalEntries.add(journalEntry);
+		journalEntry.setUser(this);
 	}
 	
-	
-	
-	
-	
+	public void removeEntry(JournalEntry journalEntry) {
+		journalEntry.setUser(null);
+		this.journalEntries.remove(journalEntry);
+	}
 	
 }
